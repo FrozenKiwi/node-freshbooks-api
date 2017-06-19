@@ -1,123 +1,16 @@
 freshbooks-api
 ==============
 
-[![Dependency Status](http://img.shields.io/david/hashdog/node-freshbooks-api.svg?style=flat-square)](https://david-dm.org/hashdog/node-freshbooks-api)
-
 A node.js wrapper for the FreshBooks API.
 
-The author of https://github.com/prattsj/freshbooksjs has not maintain module for a long time (since Apr 2014). Some important fixes has been sent and we need that.
+The original author of https://github.com/prattsj/freshbooksjs has not maintain module for a long time (since Apr 2014). Some important fixes has been sent and we need that.
+
+We found this here: https://github.com/hashdog/node-freshbooks-api , but we couldn't get our PRs added and we needed to further extend functionality, so we've added them here.
 
 
 ### Installation
 
-    npm install freshbooks-api
-
-
-### tl;dr
-
-##### Standard resource CRUD methods:
-
-* list(cb)
-* get(id, cb)
-* create(data, cb)
-* update(data, cb)
-* delete(id, cb)
-
-
-
-##### Examples:
-
-Get all invoices for the user:
-```javascript
-var FreshBooks = require('freshbooks-api');
-var freshbooks = new FreshBooks('USER_URL', 'USER_TOKEN');
-
-freshbooks.estimate.list(function(error, estimates) {
-
-    /* do things */
-});
-
-```
-
-Get a *specific* invoice:
-```javascript
-freshbooks.estimate.get(1, function(error, estimate) {
-
-    /* moar things */
-});
-
-```
-
-Update an estimate:
-```javascript
-freshbooks.estimate.update(data, function(error, estimate) {
-
-    /* aw snap */
-});
-
-```
-
-Create a new invoice:
-```javascript
-freshbooks.estimate.create(data, function(error, estimate) {
-
-    /* here we go */
-});
-
-```
-
-Delete an estimate:
-```javascript
-freshbooks.estimate.delete(1, function(error) {
-
-    /* that's what's up */
-});
-
-```
-
-
-### Authentication
-http://developers.freshbooks.com/authentication-2/
-
-Authenticating is easy. Pass in strings with the user's API URL and token when creating a client:
-```javascript
-var FreshBooks = require('freshbooks-api');
-var freshbooks = new FreshBooks('USER_URL', 'USER_TOKEN');
-```
-
-Change the token at any time. Note that this will affect & auto-update the token for any "sub-services" (for clients, time entries, etc.) accessed via this client instance:
-```javascript
-var FreshBooks = require('freshbooks-api');
-var freshbooks = new FreshBooks();
-
-/* stuff happens... */
-
-freshbooks.config.token = 'NEW_TOKEN';
-freshbooks.config.url = 'NEW_URL';
-```
-
-
-### Running Tests
-```
-$ mocha
-
-or
-
-$ make test
-```
-
-
-### Complete FreshBooks API Documentation
-
-http://developers.freshbooks.com/
-
-
-
-### Roadmap
-#### Support planned in future versions for:
-* [Receipt Upload/Download](http://developers.freshbooks.com/docs/receipts/)
-
-
+    npm install freshbooks-legacy
 
 ### License (MIT)
 
